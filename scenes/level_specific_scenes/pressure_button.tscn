@@ -1,0 +1,27 @@
+[gd_scene format=3 uid="uid://bpressurebt01"]
+
+[ext_resource type="Script" uid="uid://du36fxuqy6ttr" path="res://scripts/level_specific_scripts/pressure_button.gd" id="1_btn"]
+
+[sub_resource type="RectangleShape2D" id="zone_shape"]
+size = Vector2(64, 12)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_u5bk5"]
+bg_color = Color(0.08468992, 0.08468994, 0.08468989, 1)
+corner_radius_top_left = 7
+corner_radius_top_right = 7
+
+[node name="PressureButton" type="Area2D" unique_id=1769477921]
+collision_layer = 2
+script = ExtResource("1_btn")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=2058648641]
+position = Vector2(0, 22)
+shape = SubResource("zone_shape")
+
+[node name="Panel" type="Panel" parent="." unique_id=598297305]
+anchors_preset = -1
+offset_left = -32.0
+offset_top = 16.0
+offset_right = 32.0
+offset_bottom = 28.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_u5bk5")

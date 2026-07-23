@@ -1,0 +1,20 @@
+[gd_scene format=3 uid="uid://50xxiwj4k71e"]
+
+[ext_resource type="PackedScene" uid="uid://boxxbwygxqso3" path="res://scenes/player.tscn" id="1_wd6yf"]
+[ext_resource type="PackedScene" uid="uid://cyft0guqv4mvx" path="res://scenes/level_specific_scenes/elevator.tscn" id="2_npjm0"]
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_u5bk5"]
+
+[node name="TestElevator" type="Node2D" unique_id=1096856665]
+
+[node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=1819178787]
+position = Vector2(609, 556)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" unique_id=836308843]
+shape = SubResource("WorldBoundaryShape2D_u5bk5")
+
+[node name="Player" parent="." unique_id=955896661 instance=ExtResource("1_wd6yf")]
+position = Vector2(364, 182)
+
+[node name="Elevator" parent="." unique_id=1234565151 instance=ExtResource("2_npjm0")]
+position = Vector2(378, 300)

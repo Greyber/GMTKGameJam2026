@@ -1,0 +1,19 @@
+[gd_scene format=3 uid="uid://blever01"]
+
+[ext_resource type="Script" uid="uid://b20gn8eqgft2r" path="res://scripts/level_specific_scripts/lever.gd" id="1_lever"]
+[ext_resource type="Texture2D" uid="uid://drswlhf2cw2pt" path="res://assets/lever.png" id="2_ncfea"]
+
+[sub_resource type="RectangleShape2D" id="lever_zone"]
+size = Vector2(27, 20)
+
+[node name="Lever" type="Area2D" unique_id=1892355912]
+script = ExtResource("1_lever")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=622233930]
+position = Vector2(0.5, -10)
+shape = SubResource("lever_zone")
+
+[node name="Sprite" type="Sprite2D" parent="." unique_id=2122651395]
+texture_filter = 1
+position = Vector2(0, -16)
+texture = ExtResource("2_ncfea")

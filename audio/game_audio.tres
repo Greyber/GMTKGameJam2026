@@ -1,0 +1,7 @@
+[gd_resource type="Resource" script_class="AudioTable" format=3 uid="uid://bysqli5vfh07c"]
+
+[ext_resource type="Script" uid="uid://dis841xv2e2nk" path="res://audio/audio_table.gd" id="1_nflnj"]
+
+[resource]
+script = ExtResource("1_nflnj")
+metadata/_custom_type_script = "uid://dis841xv2e2nk"

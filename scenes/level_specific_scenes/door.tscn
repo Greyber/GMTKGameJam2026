@@ -1,0 +1,21 @@
+[gd_scene format=3 uid="uid://cpd1803xipa4h"]
+
+[ext_resource type="Script" uid="uid://dtgympf7maec4" path="res://scripts/level_specific_scripts/door.gd" id="1_hpvv5"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_u5bk5"]
+resource_local_to_scene = true
+
+[node name="Door" type="Node2D" unique_id=1336359005]
+script = ExtResource("1_hpvv5")
+
+[node name="HitBox" type="StaticBody2D" parent="." unique_id=118134371]
+collision_layer = 8
+
+[node name="ColorRect" type="ColorRect" parent="HitBox" unique_id=888947425]
+offset_left = -10.0
+offset_top = -10.0
+offset_right = 10.0
+offset_bottom = 10.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HitBox" unique_id=1337786579]
+shape = SubResource("RectangleShape2D_u5bk5")

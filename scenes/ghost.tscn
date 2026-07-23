@@ -1,0 +1,58 @@
+[gd_scene format=3 uid="uid://c53khsl4c85n"]
+
+[ext_resource type="Script" uid="uid://cjsve67thl0hj" path="res://scripts/ghost.gd" id="1_ghost"]
+[ext_resource type="Texture2D" uid="uid://bw7d6a5ymyksu" path="res://assets/Fumiko.png" id="2_l5lq6"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qhqgy"]
+atlas = ExtResource("2_l5lq6")
+region = Rect2(0, 32, 24, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dqkch"]
+atlas = ExtResource("2_l5lq6")
+region = Rect2(24, 32, 24, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qlg0r"]
+atlas = ExtResource("2_l5lq6")
+region = Rect2(48, 32, 24, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_bbnym"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qhqgy")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dqkch")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qlg0r")
+}],
+"loop": 1,
+"name": &"default",
+"speed": 8.0
+}]
+
+[sub_resource type="CapsuleShape2D" id="ghost_capsule"]
+radius = 5.0
+height = 28.0
+
+[sub_resource type="CircleShape2D" id="interaction_circle"]
+radius = 28.0
+
+[node name="Ghost" type="CharacterBody2D" unique_id=1755253807]
+script = ExtResource("1_ghost")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=2138842046]
+texture_filter = 1
+position = Vector2(0, -5)
+sprite_frames = SubResource("SpriteFrames_bbnym")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1025550091]
+position = Vector2(0, -6)
+shape = SubResource("ghost_capsule")
+
+[node name="InteractionDetector" type="Area2D" parent="." unique_id=338693354]
+collision_layer = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="InteractionDetector" unique_id=1714501242]
+shape = SubResource("interaction_circle")

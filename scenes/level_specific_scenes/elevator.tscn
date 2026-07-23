@@ -1,0 +1,50 @@
+[gd_scene format=3 uid="uid://cyft0guqv4mvx"]
+
+[ext_resource type="PackedScene" uid="uid://bsht8bf8b3kfi" path="res://scenes/level_specific_scenes/movable_platform.tscn" id="1_425hs"]
+[ext_resource type="Script" uid="uid://dpbk8t1n2o1fa" path="res://scripts/level_specific_scripts/elevator.gd" id="1_armud"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_kh5iw"]
+size = Vector2(16, 128)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_kddjp"]
+size = Vector2(64, 15)
+
+[node name="Elevator" type="Node2D" unique_id=1234565151]
+script = ExtResource("1_armud")
+
+[node name="MovablePlatform" parent="." unique_id=10501849 instance=ExtResource("1_425hs")]
+
+[node name="StaticBody2D" type="StaticBody2D" parent="MovablePlatform" unique_id=365828644]
+position = Vector2(47, -60)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="MovablePlatform/StaticBody2D" unique_id=1031352271]
+position = Vector2(0, 28)
+shape = SubResource("RectangleShape2D_kh5iw")
+
+[node name="ColorRect" type="ColorRect" parent="MovablePlatform/StaticBody2D" unique_id=2101300188]
+offset_left = -8.0
+offset_top = -36.0
+offset_right = 8.0
+offset_bottom = 92.0
+color = Color(0, 0, 0, 1)
+
+[node name="StaticBody2D2" type="StaticBody2D" parent="MovablePlatform" unique_id=830904323]
+position = Vector2(-47, -60)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="MovablePlatform/StaticBody2D2" unique_id=1707857185]
+position = Vector2(0, 28)
+shape = SubResource("RectangleShape2D_kh5iw")
+
+[node name="ColorRect" type="ColorRect" parent="MovablePlatform/StaticBody2D2" unique_id=217514000]
+offset_left = -8.0
+offset_top = -36.0
+offset_right = 8.0
+offset_bottom = 92.0
+color = Color(0, 0, 0, 1)
+
+[node name="InteractArea" type="Area2D" parent="MovablePlatform" unique_id=962642322]
+position = Vector2(0, -40)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="MovablePlatform/InteractArea" unique_id=1660784948]
+position = Vector2(0, -0.5)
+shape = SubResource("RectangleShape2D_kddjp")

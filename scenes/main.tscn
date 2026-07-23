@@ -1,0 +1,41 @@
+[gd_scene format=3 uid="uid://c07elmp1rhtr7"]
+
+[ext_resource type="Script" uid="uid://dnq4ec1asqrfw" path="res://scripts/main_scripts/main.gd" id="1_main"]
+[ext_resource type="PackedScene" uid="uid://boxxbwygxqso3" path="res://scenes/player.tscn" id="2_player"]
+[ext_resource type="PackedScene" uid="uid://cbaoajew0ap22" path="res://scenes/levels/level1.tscn" id="3_sugp2"]
+[ext_resource type="PackedScene" uid="uid://b6ejrxj7ulddw" path="res://scenes/main_camera.tscn" id="8_tipki"]
+
+[node name="Main" type="Node2D" unique_id=22478259]
+script = ExtResource("1_main")
+
+[node name="UI" type="CanvasLayer" parent="." unique_id=436047464]
+
+[node name="TimerLabel" type="Label" parent="UI" unique_id=1422740606]
+offset_left = 20.0
+offset_top = 20.0
+offset_right = 300.0
+offset_bottom = 60.0
+theme_override_font_sizes/font_size = 28
+text = "Tiempo: 10"
+
+[node name="CycleLabel" type="Label" parent="UI" unique_id=1363333045]
+offset_left = 20.0
+offset_top = 60.0
+offset_right = 500.0
+offset_bottom = 100.0
+theme_override_font_sizes/font_size = 20
+text = "Ciclo: 1  |  Fantasmas: 0"
+
+[node name="MainCamera" parent="." unique_id=138058395 instance=ExtResource("8_tipki")]
+position = Vector2(267, 508)
+zoom = Vector2(2, 2)
+limit_left = 0
+limit_top = 0
+limit_right = 1153
+limit_bottom = 650
+
+[node name="Level1" parent="." unique_id=980172146 instance=ExtResource("3_sugp2")]
+metadata/_edit_lock_ = true
+
+[node name="Player" parent="." unique_id=955896661 instance=ExtResource("2_player")]
+position = Vector2(171, 546)
