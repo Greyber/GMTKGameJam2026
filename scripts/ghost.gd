@@ -7,6 +7,7 @@ var is_playing := false
 
 func _ready() -> void:
 	$AnimatedSprite2D.play("default")
+	$InteractuableArea._on_interact.connect(func(by_whon): print('hola'))
 	
 func _physics_process(_delta: float) -> void:
 	if not is_playing:
@@ -32,16 +33,12 @@ func _physics_process(_delta: float) -> void:
 
 	if frame_data.get("interact", false):
 		_perform_interaction()
-
 	current_frame += 1
 
 func _perform_interaction() -> void:
-	if has_node("InteractionDetector"):
-		var areas = $InteractionDetector.get_overlapping_areas()
-		for area in areas:
-			if area.has_method("interact"):
-				area.interact(self)
-				break
+	var areas :Array[Area2D] = $InteractuableArea.get_overlapping_areas()
+	for area in areas:
+		area._on_interact.emit(self)
 
 func start_playback(frames: Array[Dictionary]) -> void:
 	playback_frames = frames.duplicate()

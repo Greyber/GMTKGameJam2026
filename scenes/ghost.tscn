@@ -1,7 +1,8 @@
 [gd_scene format=3 uid="uid://c53khsl4c85n"]
 
 [ext_resource type="Script" uid="uid://cjsve67thl0hj" path="res://scripts/ghost.gd" id="1_ghost"]
-[ext_resource type="Texture2D" uid="uid://bw7d6a5ymyksu" path="res://assets/Fumiko.png" id="2_l5lq6"]
+[ext_resource type="Texture2D" uid="uid://bw7d6a5ymyksu" path="res://assets/sprites/Fumiko.png" id="2_l5lq6"]
+[ext_resource type="PackedScene" uid="uid://6h66vjhkvffv" path="res://scenes/interactuable_area.tscn" id="3_bbnym"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_qhqgy"]
 atlas = ExtResource("2_l5lq6")
@@ -36,8 +37,8 @@ animations = [{
 radius = 5.0
 height = 28.0
 
-[sub_resource type="CircleShape2D" id="interaction_circle"]
-radius = 28.0
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_veat2"]
+size = Vector2(34, 31)
 
 [node name="Ghost" type="CharacterBody2D" unique_id=1755253807]
 script = ExtResource("1_ghost")
@@ -51,8 +52,10 @@ sprite_frames = SubResource("SpriteFrames_bbnym")
 position = Vector2(0, -6)
 shape = SubResource("ghost_capsule")
 
-[node name="InteractionDetector" type="Area2D" parent="." unique_id=338693354]
-collision_layer = 0
+[node name="InteractuableArea" parent="." unique_id=1155132454 instance=ExtResource("3_bbnym")]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="InteractionDetector" unique_id=1714501242]
-shape = SubResource("interaction_circle")
+[node name="CollisionShape2D" parent="InteractuableArea" index="0" unique_id=1436384967]
+position = Vector2(0, -6)
+shape = SubResource("RectangleShape2D_veat2")
+
+[editable path="InteractuableArea"]

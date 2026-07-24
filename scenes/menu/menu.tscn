@@ -1,0 +1,102 @@
+[gd_scene format=3 uid="uid://chctmwnqyemg6"]
+
+[ext_resource type="Theme" uid="uid://s1h06g852nox" path="res://resources/theme.tres" id="1_klgdb"]
+[ext_resource type="Script" uid="uid://d2p1r1skqj854" path="res://scripts/menu/menu.gd" id="1_mcvr8"]
+
+[node name="Menu" type="Control" unique_id=2115099733]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -1.0
+offset_right = -1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_mcvr8")
+
+[node name="StartButton" type="Button" parent="." unique_id=1438855180]
+layout_mode = 0
+offset_left = 66.0
+offset_top = 212.0
+offset_right = 317.0
+offset_bottom = 245.0
+theme = ExtResource("1_klgdb")
+text = "Comenzar juego"
+
+[node name="SettingsButton" type="Button" parent="." unique_id=692167910]
+layout_mode = 0
+offset_left = 4.0
+offset_top = 310.0
+offset_right = 255.0
+offset_bottom = 343.0
+theme = ExtResource("1_klgdb")
+text = "Ajustes"
+
+[node name="VolumeSettings" type="Control" parent="." unique_id=909418109]
+custom_minimum_size = Vector2(500, 300)
+anchors_preset = 0
+offset_left = -622.0
+offset_top = 173.0
+offset_right = -122.0
+offset_bottom = 473.0
+
+[node name="Panel" type="Panel" parent="VolumeSettings" unique_id=1862597638]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_klgdb")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="VolumeSettings" unique_id=150615697]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VolumeSettings/VBoxContainer" unique_id=1989063520]
+custom_minimum_size = Vector2(0, 50)
+layout_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="VolumeSettings/VBoxContainer/HBoxContainer" unique_id=2111055490]
+layout_mode = 2
+offset_transform_enabled = true
+theme_override_constants/margin_left = 35
+theme_override_constants/margin_right = 75
+
+[node name="Label" type="Label" parent="VolumeSettings/VBoxContainer/HBoxContainer/MarginContainer" unique_id=1097406347]
+layout_mode = 2
+theme = ExtResource("1_klgdb")
+text = "Volume"
+
+[node name="HSlider" type="HSlider" parent="VolumeSettings/VBoxContainer/HBoxContainer" unique_id=1542642429]
+custom_minimum_size = Vector2(250, 0)
+layout_mode = 2
+size_flags_vertical = 4
+theme = ExtResource("1_klgdb")
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="VolumeSettings/VBoxContainer" unique_id=2090564139]
+custom_minimum_size = Vector2(0, 50)
+layout_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="VolumeSettings/VBoxContainer/HBoxContainer2" unique_id=267666033]
+layout_mode = 2
+offset_transform_enabled = true
+theme_override_constants/margin_left = 35
+theme_override_constants/margin_right = 134
+
+[node name="Label" type="Label" parent="VolumeSettings/VBoxContainer/HBoxContainer2/MarginContainer" unique_id=1347479111]
+layout_mode = 2
+theme = ExtResource("1_klgdb")
+text = "SFX"
+
+[node name="HSlider" type="HSlider" parent="VolumeSettings/VBoxContainer/HBoxContainer2" unique_id=1826458664]
+custom_minimum_size = Vector2(250, 0)
+layout_mode = 2
+size_flags_vertical = 4
+theme = ExtResource("1_klgdb")
+
+[connection signal="pressed" from="SettingsButton" to="." method="_on_button_2_pressed"]

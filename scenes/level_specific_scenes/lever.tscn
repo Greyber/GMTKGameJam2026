@@ -1,19 +1,24 @@
 [gd_scene format=3 uid="uid://blever01"]
 
 [ext_resource type="Script" uid="uid://b20gn8eqgft2r" path="res://scripts/level_specific_scripts/lever.gd" id="1_lever"]
-[ext_resource type="Texture2D" uid="uid://drswlhf2cw2pt" path="res://assets/lever.png" id="2_ncfea"]
+[ext_resource type="PackedScene" uid="uid://6h66vjhkvffv" path="res://scenes/interactuable_area.tscn" id="2_b4qs8"]
+[ext_resource type="Texture2D" uid="uid://drswlhf2cw2pt" path="res://assets/sprites/lever.png" id="2_ncfea"]
 
-[sub_resource type="RectangleShape2D" id="lever_zone"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_4sbhh"]
 size = Vector2(27, 20)
 
-[node name="Lever" type="Area2D" unique_id=1892355912]
+[node name="Lever" type="Node2D" unique_id=2100018255]
 script = ExtResource("1_lever")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=622233930]
+[node name="InteractuableArea" parent="." unique_id=1155132454 instance=ExtResource("2_b4qs8")]
+
+[node name="CollisionShape2D" parent="InteractuableArea" index="0" unique_id=1436384967]
 position = Vector2(0.5, -10)
-shape = SubResource("lever_zone")
+shape = SubResource("RectangleShape2D_4sbhh")
 
 [node name="Sprite" type="Sprite2D" parent="." unique_id=2122651395]
 texture_filter = 1
 position = Vector2(0, -16)
 texture = ExtResource("2_ncfea")
+
+[editable path="InteractuableArea"]

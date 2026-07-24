@@ -1,4 +1,4 @@
-extends Area2D
+extends Node2D
 class_name Lever
 
 signal toggled(is_on: bool)
@@ -6,8 +6,7 @@ signal toggled(is_on: bool)
 var is_on: bool = false
 
 func _ready() -> void:
-	collision_layer = 1
-	collision_mask = 1
+	$InteractuableArea._on_interact.connect(interact)
 
 func interact(_by_whom: Node2D) -> void:
 	is_on = not is_on

@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://jdspss6rkrlu"
-path="res://.godot/imported/minimal_industry.png-984a217335bdbbe94eb3cd572cb7b02f.ctex"
+path="res://.godot/imported/minimal_industry.png-5c81664894a0fc25a44dcd219010427e.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/minimal_industry.png"
-dest_files=["res://.godot/imported/minimal_industry.png-984a217335bdbbe94eb3cd572cb7b02f.ctex"]
+source_file="res://assets/sprites/minimal_industry.png"
+dest_files=["res://.godot/imported/minimal_industry.png-5c81664894a0fc25a44dcd219010427e.ctex"]
 
 [params]
 

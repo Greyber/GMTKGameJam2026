@@ -1,0 +1,49 @@
+[gd_resource type="Theme" format=3 uid="uid://s1h06g852nox"]
+
+[ext_resource type="FontFile" uid="uid://dur7rom6dnwrx" path="res://assets/fonts/deltarune.ttf" id="1_d4nwg"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_d4nwg"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_7ct1h"]
+bg_color = Color(0.19607843, 0.007843138, 0.05490196, 0)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_klgdb"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_owntx"]
+bg_color = Color(1, 1, 1, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_b751m"]
+bg_color = Color(1, 1, 1, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_886mr"]
+bg_color = Color(1, 1, 1, 1)
+expand_margin_top = 4.0
+expand_margin_bottom = 3.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_mcvr8"]
+bg_color = Color(0.1316393, 0.030746598, 0.0493455, 1)
+corner_radius_top_left = 3
+corner_radius_top_right = 3
+corner_radius_bottom_right = 3
+corner_radius_bottom_left = 3
+corner_detail = 12
+shadow_color = Color(1, 0.5821992, 0.5510163, 0.6)
+shadow_size = 2
+shadow_offset = Vector2(1, 2.41)
+
+[resource]
+Button/colors/font_color = Color(1, 1, 1, 1)
+Button/colors/font_hover_color = Color(0.9512604, 0.82130665, 0.8440672, 1)
+Button/font_sizes/font_size = 32
+Button/fonts/font = ExtResource("1_d4nwg")
+Button/styles/hover = SubResource("StyleBoxFlat_d4nwg")
+Button/styles/normal = SubResource("StyleBoxFlat_7ct1h")
+Button/styles/pressed = SubResource("StyleBoxFlat_klgdb")
+HSlider/styles/grabber_area = SubResource("StyleBoxFlat_owntx")
+HSlider/styles/grabber_area_highlight = SubResource("StyleBoxFlat_b751m")
+HSlider/styles/slider = SubResource("StyleBoxFlat_886mr")
+Label/font_sizes/font_size = 32
+Label/fonts/font = ExtResource("1_d4nwg")
+Panel/styles/panel = SubResource("StyleBoxFlat_mcvr8")

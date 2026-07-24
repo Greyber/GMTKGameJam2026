@@ -24,6 +24,8 @@ ActionsManager="*uid://dsxbesokka552"
 
 [display]
 
+window/size/viewport_width=1168
+window/size/viewport_height=656
 window/stretch/mode="canvas_items"
 window/stretch/aspect="expand"
 

@@ -26,7 +26,6 @@ func check_buttons() -> void:
 		if not button.is_pressed:
 			all_pressed = false
 			break
-	print(all_pressed)
 	execute_action(all_pressed)
 	
 func execute_action(active: bool):

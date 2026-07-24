@@ -1,50 +1,94 @@
-[gd_scene format=3 uid="uid://cyft0guqv4mvx"]
+[gd_scene format=3 uid="uid://bvqitcy60437m"]
 
 [ext_resource type="PackedScene" uid="uid://bsht8bf8b3kfi" path="res://scenes/level_specific_scenes/movable_platform.tscn" id="1_425hs"]
 [ext_resource type="Script" uid="uid://dpbk8t1n2o1fa" path="res://scripts/level_specific_scripts/elevator.gd" id="1_armud"]
+[ext_resource type="PackedScene" uid="uid://6h66vjhkvffv" path="res://scenes/interactuable_area.tscn" id="2_armud"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_kh5iw"]
-size = Vector2(16, 128)
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_mkv4j"]
+resource_local_to_scene = true
+size = Vector2(112, 64)
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_kddjp"]
-size = Vector2(64, 15)
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_8otel"]
+resource_local_to_scene = true
+size = Vector2(78, 2)
 
-[node name="Elevator" type="Node2D" unique_id=1234565151]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_sklpr"]
+size = Vector2(16, 48)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_fm0u0"]
+size = Vector2(16, 48)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_r7mvv"]
+size = Vector2(112, 16)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ruw6n"]
+size = Vector2(73, 11)
+
+[node name="Elevator" unique_id=10501849 instance=ExtResource("1_425hs")]
 script = ExtResource("1_armud")
 
-[node name="MovablePlatform" parent="." unique_id=10501849 instance=ExtResource("1_425hs")]
+[node name="CollisionShape2D" parent="." index="0" unique_id=1322417132]
+position = Vector2(1, 0)
+shape = SubResource("RectangleShape2D_mkv4j")
 
-[node name="StaticBody2D" type="StaticBody2D" parent="MovablePlatform" unique_id=365828644]
+[node name="CollisionShape2D2" parent="Area2D" parent_id_path=PackedInt32Array(661901327) index="0" unique_id=655545843]
+position = Vector2(0, -33)
+shape = SubResource("RectangleShape2D_8otel")
+
+[node name="ColorRect" parent="." index="2" unique_id=1692747401]
+offset_left = -55.0
+offset_top = -32.0
+offset_right = 57.0
+
+[node name="right" type="StaticBody2D" parent="." index="3" unique_id=1310522230]
 position = Vector2(47, -60)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="MovablePlatform/StaticBody2D" unique_id=1031352271]
-position = Vector2(0, 28)
-shape = SubResource("RectangleShape2D_kh5iw")
+[node name="CollisionShape2D" type="CollisionShape2D" parent="right" index="0" unique_id=234226472]
+position = Vector2(2, 4)
+shape = SubResource("RectangleShape2D_sklpr")
 
-[node name="ColorRect" type="ColorRect" parent="MovablePlatform/StaticBody2D" unique_id=2101300188]
-offset_left = -8.0
-offset_top = -36.0
-offset_right = 8.0
-offset_bottom = 92.0
+[node name="ColorRect" type="ColorRect" parent="right" index="1" unique_id=1096672949]
+offset_left = -6.0
+offset_top = -20.0
+offset_right = 10.0
+offset_bottom = 28.0
 color = Color(0, 0, 0, 1)
+metadata/_edit_use_anchors_ = true
 
-[node name="StaticBody2D2" type="StaticBody2D" parent="MovablePlatform" unique_id=830904323]
+[node name="left" type="StaticBody2D" parent="." index="4" unique_id=1687421462]
+position = Vector2(-47, -108)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="left" index="0" unique_id=127086116]
+position = Vector2(0, 4)
+shape = SubResource("RectangleShape2D_fm0u0")
+
+[node name="ColorRect" type="ColorRect" parent="left" index="1" unique_id=374864506]
+offset_left = -8.0
+offset_top = -20.0
+offset_right = 8.0
+offset_bottom = 28.0
+color = Color(0, 0, 0, 1)
+metadata/_edit_use_anchors_ = true
+
+[node name="top" type="StaticBody2D" parent="." index="5" unique_id=712045206]
 position = Vector2(-47, -60)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="MovablePlatform/StaticBody2D2" unique_id=1707857185]
-position = Vector2(0, 28)
-shape = SubResource("RectangleShape2D_kh5iw")
+[node name="CollisionShape2D" type="CollisionShape2D" parent="top" index="0" unique_id=1885459828]
+position = Vector2(48, -28)
+shape = SubResource("RectangleShape2D_r7mvv")
 
-[node name="ColorRect" type="ColorRect" parent="MovablePlatform/StaticBody2D2" unique_id=217514000]
+[node name="ColorRect" type="ColorRect" parent="top" index="1" unique_id=26336969]
 offset_left = -8.0
 offset_top = -36.0
-offset_right = 8.0
-offset_bottom = 92.0
+offset_right = 104.0
+offset_bottom = -20.0
 color = Color(0, 0, 0, 1)
+metadata/_edit_use_anchors_ = true
 
-[node name="InteractArea" type="Area2D" parent="MovablePlatform" unique_id=962642322]
-position = Vector2(0, -40)
+[node name="InteractuableArea" parent="." index="6" unique_id=1155132454 instance=ExtResource("2_armud")]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="MovablePlatform/InteractArea" unique_id=1660784948]
-position = Vector2(0, -0.5)
-shape = SubResource("RectangleShape2D_kddjp")
+[node name="CollisionShape2D" parent="InteractuableArea" index="0" unique_id=1436384967]
+position = Vector2(0.5, -42.5)
+shape = SubResource("RectangleShape2D_ruw6n")
+
+[editable path="InteractuableArea"]

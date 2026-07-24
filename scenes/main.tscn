@@ -2,15 +2,18 @@
 
 [ext_resource type="Script" uid="uid://dnq4ec1asqrfw" path="res://scripts/main_scripts/main.gd" id="1_main"]
 [ext_resource type="PackedScene" uid="uid://boxxbwygxqso3" path="res://scenes/player.tscn" id="2_player"]
+[ext_resource type="PackedScene" uid="uid://chctmwnqyemg6" path="res://scenes/menu/menu.tscn" id="2_tefeu"]
 [ext_resource type="PackedScene" uid="uid://cbaoajew0ap22" path="res://scenes/levels/level1.tscn" id="3_sugp2"]
+[ext_resource type="PackedScene" uid="uid://cca06rs4cdla8" path="res://scenes/levels/level2.tscn" id="5_tbgi4"]
 [ext_resource type="PackedScene" uid="uid://b6ejrxj7ulddw" path="res://scenes/main_camera.tscn" id="8_tipki"]
 
 [node name="Main" type="Node2D" unique_id=22478259]
 script = ExtResource("1_main")
 
-[node name="UI" type="CanvasLayer" parent="." unique_id=436047464]
+[node name="GameUI" type="CanvasLayer" parent="." unique_id=436047464]
+visible = false
 
-[node name="TimerLabel" type="Label" parent="UI" unique_id=1422740606]
+[node name="TimerLabel" type="Label" parent="GameUI" unique_id=1422740606]
 offset_left = 20.0
 offset_top = 20.0
 offset_right = 300.0
@@ -18,7 +21,7 @@ offset_bottom = 60.0
 theme_override_font_sizes/font_size = 28
 text = "Tiempo: 10"
 
-[node name="CycleLabel" type="Label" parent="UI" unique_id=1363333045]
+[node name="CycleLabel" type="Label" parent="GameUI" unique_id=1363333045]
 offset_left = 20.0
 offset_top = 60.0
 offset_right = 500.0
@@ -26,16 +29,27 @@ offset_bottom = 100.0
 theme_override_font_sizes/font_size = 20
 text = "Ciclo: 1  |  Fantasmas: 0"
 
+[node name="Menu" type="CanvasLayer" parent="." unique_id=1102317475]
+
+[node name="Menu" parent="Menu" unique_id=2115099733 instance=ExtResource("2_tefeu")]
+
 [node name="MainCamera" parent="." unique_id=138058395 instance=ExtResource("8_tipki")]
 position = Vector2(267, 508)
-zoom = Vector2(2, 2)
 limit_left = 0
 limit_top = 0
-limit_right = 1153
-limit_bottom = 650
-
-[node name="Level1" parent="." unique_id=980172146 instance=ExtResource("3_sugp2")]
-metadata/_edit_lock_ = true
+limit_right = 1168
+limit_bottom = 656
 
 [node name="Player" parent="." unique_id=955896661 instance=ExtResource("2_player")]
 position = Vector2(171, 546)
+
+[node name="AllGhosts" type="Node2D" parent="." unique_id=1351004450]
+position = Vector2(0, 656)
+
+[node name="Levels" type="Node2D" parent="." unique_id=840011791]
+
+[node name="1" parent="Levels" unique_id=980172146 instance=ExtResource("3_sugp2")]
+metadata/_edit_lock_ = true
+
+[node name="2" parent="Levels" unique_id=1203606028 instance=ExtResource("5_tbgi4")]
+position = Vector2(0, 656)

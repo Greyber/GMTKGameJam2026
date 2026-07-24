@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://bw7d6a5ymyksu"
-path="res://.godot/imported/Fumiko.png-547dc3bb2b0f962e2d5f26e58f65decf.ctex"
+path="res://.godot/imported/Fumiko.png-bd711e70b77fdd8c884ed1ce10ee51b7.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/Fumiko.png"
-dest_files=["res://.godot/imported/Fumiko.png-547dc3bb2b0f962e2d5f26e58f65decf.ctex"]
+source_file="res://assets/sprites/Fumiko.png"
+dest_files=["res://.godot/imported/Fumiko.png-bd711e70b77fdd8c884ed1ce10ee51b7.ctex"]
 
 [params]
 
