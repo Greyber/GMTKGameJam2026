@@ -1,7 +1,49 @@
 [gd_resource type="Resource" script_class="AudioTable" format=3 uid="uid://bysqli5vfh07c"]
 
+[ext_resource type="Script" uid="uid://63q87qdfuiy8" path="res://audio/audio_setiing.gd" id="1_ixyf6"]
 [ext_resource type="Script" uid="uid://dis841xv2e2nk" path="res://audio/audio_table.gd" id="1_nflnj"]
+[ext_resource type="AudioStream" uid="uid://dk3dkhtvxvuhm" path="res://audio/Sounds/Device Toggle 04.wav" id="2_1sgt3"]
+[ext_resource type="AudioStream" uid="uid://ci2d0hnk80na4" path="res://audio/Sounds/770202__yuugfr1a__modern-ui-decline.wav" id="2_ixyf6"]
+[ext_resource type="AudioStream" uid="uid://3e3p8uax08x5" path="res://audio/Sounds/Path to Lake Land.ogg" id="5_a6wuk"]
+[ext_resource type="AudioStream" uid="uid://cwrx61qeeoraf" path="res://audio/Sounds/old city theme.ogg" id="5_ndm53"]
+[ext_resource type="AudioStream" uid="uid://gkrjsdc4wiqx" path="res://audio/Sounds/soundreality-wind-blowing-457954.mp3" id="6_va0tg"]
+
+[sub_resource type="Resource" id="Resource_4k6i7"]
+script = ExtResource("1_ixyf6")
+source = ExtResource("2_1sgt3")
+volume_db = 3.261000000000003
+metadata/_custom_type_script = "uid://63q87qdfuiy8"
+
+[sub_resource type="Resource" id="Resource_kf812"]
+script = ExtResource("1_ixyf6")
+source = ExtResource("2_ixyf6")
+volume_db = -10.109000000000002
+pitch_randomness = 0.1
+metadata/_custom_type_script = "uid://63q87qdfuiy8"
+
+[sub_resource type="Resource" id="Resource_5ttaj"]
+script = ExtResource("1_ixyf6")
+source = ExtResource("5_a6wuk")
+volume_db = -13.495000000000001
+metadata/_custom_type_script = "uid://63q87qdfuiy8"
+
+[sub_resource type="Resource" id="Resource_krp1p"]
+script = ExtResource("1_ixyf6")
+source = ExtResource("5_ndm53")
+volume_db = -5.479999999999997
+metadata/_custom_type_script = "uid://63q87qdfuiy8"
+
+[sub_resource type="Resource" id="Resource_tefeu"]
+script = ExtResource("1_ixyf6")
+source = ExtResource("6_va0tg")
+volume_db = -21.848
+metadata/_custom_type_script = "uid://63q87qdfuiy8"
 
 [resource]
 script = ExtResource("1_nflnj")
+click = SubResource("Resource_4k6i7")
+hover = SubResource("Resource_kf812")
+wind_effect = SubResource("Resource_tefeu")
+music_track_1 = SubResource("Resource_5ttaj")
+music_track_2 = SubResource("Resource_krp1p")
 metadata/_custom_type_script = "uid://dis841xv2e2nk"

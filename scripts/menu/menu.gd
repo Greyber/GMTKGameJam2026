@@ -6,6 +6,9 @@ var original_settings_pos : Vector2
 var settings_tween : Tween
 var start_button_hover_tween : Tween
 var settings_button_hover_tween : Tween
+var credits_button_hover_tween : Tween
+var lenguages : Array = ["en", "es"]
+var current_lenguage = lenguages[0]
 
 
 # Called when the node enters the scene tree for the first time.
@@ -41,6 +44,8 @@ func open_settings() -> void:
 		start_button_hover_tween.kill()
 	if settings_button_hover_tween:
 		settings_button_hover_tween.kill()
+	if credits_button_hover_tween:
+		credits_button_hover_tween.kill()
 	if settings_tween:
 		settings_tween.kill()
 		
@@ -53,11 +58,15 @@ func open_settings() -> void:
 	settings_tween.tween_property($StartButton, "rotation_degrees", 0.0, 0.2)
 	settings_tween.tween_property($SettingsButton, "scale", Vector2.ZERO, 0.2)
 	settings_tween.tween_property($SettingsButton, "rotation_degrees", 0.0, 0.2)
+	settings_tween.tween_property($CreditsButton, "scale", Vector2.ZERO, 0.1)
+	settings_tween.tween_property($CreditsButton, "rotation_degrees", 0.0, 0.2)
 	settings_tween.tween_property($VolumeSettings, "position", Vector2(340, 175), 0.25)
 	
 	settings_tween.chain().tween_callback(func():
 		$StartButton.visible = false
 		$SettingsButton.visible = false
+		$CreditsButton.visible = false
+		
 		is_transitioning = false
 	)
 
@@ -73,6 +82,8 @@ func close_settings() -> void:
 		
 	$StartButton.visible = true
 	$SettingsButton.visible = true
+	$CreditsButton.visible = true
+	
 	
 	settings_tween = create_tween()
 	settings_tween.set_parallel(true)
@@ -83,6 +94,8 @@ func close_settings() -> void:
 	settings_tween.tween_property($StartButton, "rotation_degrees", 0.0, 0.2)
 	settings_tween.tween_property($SettingsButton, "scale", Vector2.ONE, 0.2)
 	settings_tween.tween_property($SettingsButton, "rotation_degrees", 0.0, 0.2)
+	settings_tween.tween_property($CreditsButton, "scale", Vector2.ONE, 0.2)
+	settings_tween.tween_property($CreditsButton, "rotation_degrees", 0.0, 0.2)
 	settings_tween.tween_property($VolumeSettings, "position", original_settings_pos, 0.25)
 	
 	settings_tween.chain().tween_callback(func():
@@ -141,6 +154,62 @@ func _on_settings_button_mouse_exited() -> void:
 	settings_button_hover_tween.tween_property($SettingsButton, "scale", Vector2(1.0, 1.0), 0.15)
 	settings_button_hover_tween.tween_property($SettingsButton, "rotation_degrees", 0.0, 0.15)
 
-
 func _on_button_2_pressed() -> void:
 	open_settings()
+
+func _on_h_slider_value_changed(value: float) -> void:
+	var index : int = AudioServer.get_bus_index("Music")
+	AudioServer.set_bus_volume_db(index, linear_to_db(value))
+
+
+func _on_sfx_slider_value_changed(value: float) -> void:
+	var index : int = AudioServer.get_bus_index("SFX")
+	AudioServer.set_bus_volume_db(index, linear_to_db(value))
+
+func _on_start_button_pressed() -> void:
+	EventBus.ON_START_GAME.emit()
+	queue_free()
+
+
+func _on_change_lenguage_button_pressed() -> void:
+	if current_lenguage == "en":
+		current_lenguage = lenguages[1]
+		$LenguageSelector/CurrentLenguage.text = "Idioma"
+		$LenguageSelector/MexicoFlag.visible = true
+		$LenguageSelector/USAFlag.visible = false
+	elif current_lenguage == "es":
+		current_lenguage = lenguages[0]
+		$LenguageSelector/CurrentLenguage.text = "Lenguage"
+		$LenguageSelector/MexicoFlag.visible = false
+		$LenguageSelector/USAFlag.visible = true
+		
+
+
+func _on_credits_button_pressed() -> void:
+	pass
+
+
+func _on_credits_button_mouse_entered() -> void:
+	if is_settings_open or is_transitioning:
+		return
+	if credits_button_hover_tween:
+		credits_button_hover_tween.kill()
+	credits_button_hover_tween = create_tween()
+	credits_button_hover_tween.set_parallel(true)
+	credits_button_hover_tween.set_trans(Tween.TRANS_SINE)
+	credits_button_hover_tween.set_ease(Tween.EASE_OUT)
+	credits_button_hover_tween.tween_property($CreditsButton, "scale", Vector2(1.05, 1.05), 0.15)
+	credits_button_hover_tween.tween_property($CreditsButton, "rotation_degrees", -1.5, 0.15)
+
+
+func _on_credits_button_mouse_exited() -> void:
+	if is_settings_open or is_transitioning:
+		return
+	if credits_button_hover_tween:
+		credits_button_hover_tween.kill()
+	credits_button_hover_tween = create_tween()
+	credits_button_hover_tween.set_parallel(true)
+	credits_button_hover_tween.set_trans(Tween.TRANS_SINE)
+	credits_button_hover_tween.set_ease(Tween.EASE_OUT)
+	credits_button_hover_tween.tween_property($CreditsButton, "scale", Vector2(1.0, 1.0), 0.15)
+	credits_button_hover_tween.tween_property($CreditsButton, "rotation_degrees", 0.0, 0.15)

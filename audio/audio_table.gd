@@ -11,6 +11,7 @@ extends Resource
 @export_category("Music")
 @export var title_music: AudioSetting
 @export var finish_music: AudioSetting
+@export var wind_effect : AudioSetting
 
 @export_category("Playlist")
 @export var music_track_1: AudioSetting

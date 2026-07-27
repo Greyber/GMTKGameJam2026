@@ -2,12 +2,13 @@ extends CharacterBody2D
 class_name Player
 
 const SPEED := 100.0
-const JUMP_VELOCITY := -350.0
+const JUMP_VELOCITY := -300.0
 const GRAVITY := 980.0
 
 var can_move : bool = true
 var is_recording := false
 var recorded_frames: Array[Dictionary] = []
+var debugging : bool = false
 
 func _ready() -> void:
 	$AnimatedSprite2D.play("walking")
@@ -34,13 +35,32 @@ func _physics_process(delta: float) -> void:
 
 		if Input.is_action_just_pressed("jump") and is_on_floor():
 			velocity.y = JUMP_VELOCITY
+		
 
 		# Interacción
 		if Input.is_action_just_pressed("interact"):
 			has_interact = true
 			_perform_interaction()
-		if dir == 0: 
-			$AnimatedSprite2D.play("idle")
+			
+	if debugging:
+		move_and_slide()
+		return
+		
+	var animation_to_set : String
+	if dir == 0:
+		$"..".timer_running = false
+		animation_to_set = "idle"
+	else:
+		$"..".timer_running = true
+		animation_to_set = "walking"
+	if velocity.y < 0: 
+		animation_to_set = "jump_up"
+	elif velocity.y > 0:
+		animation_to_set = "falling"
+		
+	if $AnimatedSprite2D.animation != animation_to_set:
+		$AnimatedSprite2D.play(animation_to_set)
+		
 
 	move_and_slide()
 		

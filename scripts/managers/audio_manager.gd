@@ -125,9 +125,6 @@ func start_playlist() -> void:
 	playlist = [
 		AudioManager.tracks.music_track_1,
 		AudioManager.tracks.music_track_2,
-		AudioManager.tracks.music_track_3,
-		AudioManager.tracks.music_track_4,
-		AudioManager.tracks.music_track_5,
 	]
 	
 	_play_current_track()

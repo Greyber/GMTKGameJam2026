@@ -2,13 +2,13 @@
 
 importer="font_data_dynamic"
 type="FontFile"
-uid="uid://dur7rom6dnwrx"
-path="res://.godot/imported/deltarune.ttf-1675ae9ea67c49abe1a696856cfa8e2a.fontdata"
+uid="uid://b4ujloc6nat3u"
+path="res://.godot/imported/determination.ttf-eae66f77ac7e574675f2f54f40f9dda0.fontdata"
 
 [deps]
 
-source_file="res://assets/fonts/deltarune.ttf"
-dest_files=["res://.godot/imported/deltarune.ttf-1675ae9ea67c49abe1a696856cfa8e2a.fontdata"]
+source_file="res://assets/fonts/determination.ttf"
+dest_files=["res://.godot/imported/determination.ttf-eae66f77ac7e574675f2f54f40f9dda0.fontdata"]
 
 [params]
 
@@ -17,7 +17,7 @@ antialiasing=1
 generate_mipmaps=false
 disable_embedded_bitmaps=true
 multichannel_signed_distance_field=true
-msdf_pixel_range=8
+msdf_pixel_range=12
 msdf_size=48
 allow_system_fallback=true
 force_autohinter=false

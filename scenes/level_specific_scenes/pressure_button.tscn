@@ -6,7 +6,7 @@
 size = Vector2(64, 12)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_u5bk5"]
-bg_color = Color(0.08468992, 0.08468994, 0.08468989, 1)
+bg_color = Color(0, 0, 0, 1)
 corner_radius_top_left = 7
 corner_radius_top_right = 7
 

@@ -1,6 +1,6 @@
 extends MovablePlatform
 
-@export var current_base_position : int = 592
+@export var base_position : int = 592
 @export var end_position : int = 816
 var moving = false
 
@@ -12,14 +12,14 @@ func _ready() -> void:
 
 func _process(delta: float) -> void:
 	super(delta)
-	if position.y > end_position:
-		position.y = end_position
+	if global_position.y > end_position:
+		global_position.y = end_position
 		speed = Vector2.ZERO
 		EventBus.ON_START_NEXT_LEVEL.emit()
 		set_process(false)
 		
 func reset() -> void:
-	position.y = current_base_position
+	global_position.y = base_position
 	speed = Vector2.ZERO
 
 func interact(_by_whom) -> void:
